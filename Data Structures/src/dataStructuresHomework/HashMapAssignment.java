@@ -1,9 +1,11 @@
 package dataStructuresHomework;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class HashMapAssignment {
-	public static void main(String[] args) {
+
+	public static void available(String model) {
 		HashMap<String, String> vehicles = new HashMap<>();
 
 		vehicles.put("Fit", "Honda");
@@ -16,8 +18,19 @@ public class HashMapAssignment {
 		vehicles.put("Prius", "Toyota");
 		vehicles.put("Corolla", "Toyota");
 
-		System.out.println(vehicles.get("Tbird"));
-		System.out.println(vehicles.get("Prius"));
-
+		if (vehicles.get(model) != null) {
+			System.out.println("Great! We'd love to show you our " + model + "s. Follow me to see our "
+					+ vehicles.get(model) + "s.");
+		} else {
+			System.out.println("Sorry, we don't have any of that car.");
+		}
 	}
+
+	public static void main(String[] args) {
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("What model of car are you looking for?");
+		String searchModel = userInput.nextLine();
+		available(searchModel);
+	}
+
 }
